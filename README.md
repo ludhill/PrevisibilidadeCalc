@@ -1,6 +1,6 @@
 ---
 
-## 🚀 Passo a passo para executar o projeto
+## Passo a passo para executar o projeto
 
 ### 1. **Clonar o repositório**
 
