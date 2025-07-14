@@ -1,5 +1,3 @@
-Claro, Lucas! Aqui está o passo a passo completo para executar seu projeto depois de fazer o clone — ideal para colocar no `README.md` ou enviar para alguém que precise rodar a calculadora localmente:
-
 ---
 
 ## 🚀 Passo a passo para executar o projeto
@@ -72,9 +70,6 @@ python -m http.server
 - Clique em **Gerar Gráfico**
 - Use os botões para **Salvar**, **Exportar** e **Imprimir**
 
-### 7. **Exportar para PDF**
-
-Clique em “Imprimir PDF” → uma nova aba será aberta com o gráfico renderizado → clique em “Imprimir” no navegador e selecione “Salvar como PDF”.
 
 ---
 
