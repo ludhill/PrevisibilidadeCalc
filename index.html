@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta author="Lucas Denner" />
+  <title>Calculadora de Previsibilidade de Crescimento</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>Agência de Marketing — Calculadora de Crescimento</header>
+
+  <div class="layout">
+    <aside id="sidebar">
+      <form id="calc-form">
+        <label for="empresa">Nome da empresa:</label>
+        <input type="text" id="empresa" placeholder="Ex: PetMax" required />
+
+        <label for="clientes-dia">Clientes por dia:</label>
+        <input type="number" id="clientes-dia" placeholder="Ex: 20" required />
+
+        <label for="ticket-medio">Ticket médio por cliente (R$):</label>
+        <input type="number" id="ticket-medio" placeholder="Ex: 200.00" step="0.01" required />
+
+        <label for="dias-uteis">Dias úteis por mês:</label>
+        <input type="number" id="dias-uteis" placeholder="Ex: 22" required />
+
+        <label for="crescimento-mensal">Crescimento médio mensal (%):</label>
+        <input type="number" id="crescimento-mensal" placeholder="Ex: 2" step="0.1" required />
+
+        <label for="crescimento-anual">Crescimento médio anual (%):</label>
+        <input type="number" id="crescimento-anual" placeholder="Ex: 5" step="0.1" required />
+
+        <div class="actions">
+          <button type="submit">Gerar Gráfico</button>
+          <button type="button" id="salvar-simulacao">Salvar</button>
+          <button type="button" id="exportar-simulacao">Exportar</button>
+          <button id="btn-imprimir">🖨️ Imprimir PDF</button>
+        </div>
+      </form>
+
+      <label for="select-simulacao">Simulações:</label>
+      <select id="select-simulacao">
+        <option value="">Selecione</option>
+      </select>
+    </aside>
+
+    <main>
+      <button id="toggle-sidebar">☰</button>
+      <canvas id="graficoProjecao"></canvas>
+    </main>
+  </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("btn-imprimir");
+    const canvas = document.getElementById("graficoProjecao");
+
+    btn.addEventListener("click", () => {
+      if (!canvas) return;
+
+      const dataUrl = canvas.toDataURL("image/png");
+      const janela = window.open("", "_blank");
+
+      if (janela) {
+        janela.document.write(`
+          <html>
+            <head><title>Projeção de Crescimento</title></head>
+            <body style="text-align:center">
+              <img src="${dataUrl}" style="max-width:90%; margin-top:2rem" />
+              <script>window.print();<\/script>
+            </body>
+          </html>
+        `);
+        janela.document.close();
+      }
+    });
+  });
+</script>
+  <script src="calculator.js"></script>
+</body>
+</html>
