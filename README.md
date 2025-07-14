@@ -7,7 +7,7 @@
 Abra o terminal e execute:
 
 ```bash
-git clone [https://github.com/seu-usuario/marketing-growth-app.git](https://github.com/ludhill/PrevisibilidadeCalc.git)
+git clone https://github.com/ludhill/PrevisibilidadeCalc.git
 ```
 
 Substitua o link pelo correto, se necessário.
